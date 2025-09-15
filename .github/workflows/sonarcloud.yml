@@ -37,7 +37,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  pull-requests: read # allows SonarCloud to decorate PRs with analysis results
+  pull-requests: write # allows SonarCloud to decorate PRs with analysis results
 
 jobs:
   Analysis:
@@ -58,9 +58,6 @@ jobs:
             # mandatory
             -Dsonar.organization=sara-prueba
             -Dsonar.projectKey=vjp-saraMG_curso_symfony_5_primeros_pasos
-            -Dsonar.pullrequest.key=${{ github.event.number }}
-            -Dsonar.pullrequest.branch=${{ github.head_ref }}
-            -Dsonar.pullrequest.base=${{ github.base_ref }}
             # Comma-separated paths to directories containing main source files.
             #-Dsonar.sources= # optional, default is project base directory
             # Comma-separated paths to directories containing test source files.

@@ -8,6 +8,10 @@ on:
   pull_request:
     types: [opened, synchronize, reopened]
 
+permissions:  # 🔒 Asegura permisos para SonarCloud bot
+  contents: read
+  pull-requests: write  # 👈 Necesario para comentar en la PR
+
 jobs:
   sonarcloud:
     name: SonarCloud

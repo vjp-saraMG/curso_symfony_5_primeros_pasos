@@ -24,6 +24,14 @@ class TareaController extends AbstractController
         ]);
     }
 
+    public function listado2(TareaRepository $tareasRepository): Response
+    {
+        $tareas = $tareasRepository->findAll();
+        return $this->render('tarea/listado.html.twig', [
+            'tareas' => $tareas,
+        ]);
+    }
+
     /**
      * @Route("/crear-tarea", name="app_crear_tarea")
      */
